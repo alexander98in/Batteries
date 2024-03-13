@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.asst.batteries.asstbatteries.facadeServices.DTO;
+package co.edu.unicauca.asae.asst.batteries.asstbatteries.dataAccessLayer.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,12 +7,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class QuestionDTO {
+public class QuestionEntity {
 
     private Long id;
     private String name;
     private Integer value;
 
-    public QuestionDTO() {
+    public QuestionEntity() {
     }
 }

@@ -1,45 +1,46 @@
-package co.edu.unicauca.asae.asst.batteries.asstbatteries.layerDataAccess.repositories;
+package co.edu.unicauca.asae.asst.batteries.asstbatteries.dataAccessLayer.repositories;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import co.edu.unicauca.asae.asst.batteries.asstbatteries.layerDataAccess.models.BatteryEntity;
-import co.edu.unicauca.asae.asst.batteries.asstbatteries.layerDataAccess.models.ProfessorEntity;
-import co.edu.unicauca.asae.asst.batteries.asstbatteries.layerDataAccess.models.QuestionEntity;
+import co.edu.unicauca.asae.asst.batteries.asstbatteries.dataAccessLayer.models.BatteryEntity;
+import co.edu.unicauca.asae.asst.batteries.asstbatteries.dataAccessLayer.models.ProfessorEntity;
+import co.edu.unicauca.asae.asst.batteries.asstbatteries.dataAccessLayer.models.QuestionEntity;
 
 @Repository
 public class BatteryRepositoryImpl implements IBatteryRepository {
 
-    private List<BatteryEntity> batteryList;
+    private List<BatteryEntity> batteriesList;
 
     public BatteryRepositoryImpl(List<BatteryEntity> batteryList) {
-        this.batteryList = batteryList;
+        this.batteriesList = batteryList;
         loadData();
     }
 
     @Override
     public List<BatteryEntity> findAll() {
-        System.out.println("Invocando a listar baterias ahhh");
-        return this.batteryList;
+        System.out.println("Invocando a listar baterias");
+        return this.batteriesList;
     }
 
     @Override
     public BatteryEntity findById(Long id) {
         System.out.println("Invocando a consultar bateria");
-        return this.batteryList.stream().filter(b -> b.getId().equals(id)).findFirst().orElse(null); 
+        return this.batteriesList.stream().filter(b -> b.getId().equals(id)).findFirst().orElse(null); 
     }
 
     @Override
     public BatteryEntity save(BatteryEntity battery) {
         System.out.println("Invocando a almacenar bateria");
         BatteryEntity newBattery = null;
-        if(this.batteryList.add(newBattery)) {
+        if(this.batteriesList.add(battery)) {
             newBattery = battery;
         }
         return newBattery;
@@ -49,7 +50,7 @@ public class BatteryRepositoryImpl implements IBatteryRepository {
     public BatteryEntity update(Long id, BatteryEntity battery) {
         System.out.println("Invocando a actualizar bateria");
         BatteryEntity batteryUpdate = null;
-        batteryUpdate = this.batteryList.stream().filter(b -> b.getId().equals(id))
+        batteryUpdate = this.batteriesList.stream().filter(b -> b.getId().equals(id))
             .map(b -> {
                 b.setAuthorization(battery.getAuthorization());
                 b.setDate(battery.getDate());
@@ -65,12 +66,12 @@ public class BatteryRepositoryImpl implements IBatteryRepository {
     public Boolean delete(Long id) {
         System.out.println("Invocando a eliminar una bateria");
 
-        List<BatteryEntity> listFilter = this.batteryList.stream()
+        List<BatteryEntity> listFilter = this.batteriesList.stream()
             .filter(b -> !b.getId().equals(id))
             .toList();
         
-        if (listFilter.size() < this.batteryList.size()) {
-            this.batteryList = listFilter;
+        if (listFilter.size() < this.batteriesList.size()) {
+            this.batteriesList = listFilter;
             return true;
         }else {
             return false;
@@ -126,7 +127,6 @@ public class BatteryRepositoryImpl implements IBatteryRepository {
         BatteryEntity battery5 = new BatteryEntity(5L, new Date(), true, professor5, questionList);
         BatteryEntity battery6 = new BatteryEntity(6L, new Date(), true, professor6, questionList);
 
-        this.batteryList = Arrays.asList(battery1, battery2, battery3, battery4, battery5, battery6);
+        this.batteriesList = new LinkedList<BatteryEntity>(Arrays.asList(battery1, battery2, battery3, battery4, battery5, battery6));
     }
-
 }

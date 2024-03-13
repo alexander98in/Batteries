@@ -1,8 +1,8 @@
-package co.edu.unicauca.asae.asst.batteries.asstbatteries.facadeServices.services;
+package co.edu.unicauca.asae.asst.batteries.asstbatteries.servicesFacade.services;
 
 import java.util.List;
 
-import co.edu.unicauca.asae.asst.batteries.asstbatteries.facadeServices.DTO.BatteryDTO;
+import co.edu.unicauca.asae.asst.batteries.asstbatteries.servicesFacade.DTO.BatteryDTO;
 
 public interface IBatteryService {
 

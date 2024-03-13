@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.asst.batteries.asstbatteries.facadeServices.mapper;
+package co.edu.unicauca.asae.asst.batteries.asstbatteries.servicesFacade.mapper;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

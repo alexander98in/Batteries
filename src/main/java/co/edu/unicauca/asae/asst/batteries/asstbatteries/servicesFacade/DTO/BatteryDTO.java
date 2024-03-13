@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.asst.batteries.asstbatteries.facadeServices.DTO;
+package co.edu.unicauca.asae.asst.batteries.asstbatteries.servicesFacade.DTO;
 
 import java.util.Date;
 import java.util.List;

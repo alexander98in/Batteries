@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.asst.batteries.asstbatteries.facadeServices.services;
+package co.edu.unicauca.asae.asst.batteries.asstbatteries.servicesFacade.services;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.edu.unicauca.asae.asst.batteries.asstbatteries.facadeServices.DTO.BatteryDTO;
-import co.edu.unicauca.asae.asst.batteries.asstbatteries.layerDataAccess.models.BatteryEntity;
-import co.edu.unicauca.asae.asst.batteries.asstbatteries.layerDataAccess.repositories.IBatteryRepository;
+import co.edu.unicauca.asae.asst.batteries.asstbatteries.dataAccessLayer.models.BatteryEntity;
+import co.edu.unicauca.asae.asst.batteries.asstbatteries.dataAccessLayer.repositories.IBatteryRepository;
+import co.edu.unicauca.asae.asst.batteries.asstbatteries.servicesFacade.DTO.BatteryDTO;
 
 @Service
 public class BatteryServiceImpl implements IBatteryService {
@@ -39,8 +39,12 @@ public class BatteryServiceImpl implements IBatteryService {
 
     @Override
     public BatteryDTO save(BatteryDTO battery) {
+        BatteryDTO batteryDTO = null;
         BatteryEntity batteryEntity = this.modelMapper.map(battery, BatteryEntity.class);
-        BatteryDTO batteryDTO = this.modelMapper.map(this.serviceAccessData.save(batteryEntity), BatteryDTO.class);
+        batteryEntity = this.serviceAccessData.save(batteryEntity);
+        if(batteryEntity != null) {
+            batteryDTO = this.modelMapper.map(batteryEntity, BatteryDTO.class);
+        }
         return batteryDTO;
     }
 

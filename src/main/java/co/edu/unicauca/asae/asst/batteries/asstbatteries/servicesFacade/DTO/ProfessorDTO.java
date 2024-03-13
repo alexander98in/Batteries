@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.asst.batteries.asstbatteries.layerDataAccess.models;
+package co.edu.unicauca.asae.asst.batteries.asstbatteries.servicesFacade.DTO;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class ProfessorEntity {
+public class ProfessorDTO {
 
     private Long id;
     private Long documentNumber;
@@ -21,7 +21,6 @@ public class ProfessorEntity {
     private String educationLevel;
     private String profession;
 
-    public ProfessorEntity() {
+    public ProfessorDTO() {
     }
-
 }

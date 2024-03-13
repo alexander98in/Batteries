@@ -1,8 +1,8 @@
-package co.edu.unicauca.asae.asst.batteries.asstbatteries.layerDataAccess.repositories;
+package co.edu.unicauca.asae.asst.batteries.asstbatteries.dataAccessLayer.repositories;
 
 import java.util.List;
 
-import co.edu.unicauca.asae.asst.batteries.asstbatteries.layerDataAccess.models.BatteryEntity;
+import co.edu.unicauca.asae.asst.batteries.asstbatteries.dataAccessLayer.models.BatteryEntity;
 
 public interface IBatteryRepository {
 

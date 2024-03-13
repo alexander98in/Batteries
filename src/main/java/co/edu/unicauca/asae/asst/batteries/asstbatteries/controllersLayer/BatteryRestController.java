@@ -1,4 +1,4 @@
-package co.edu.unicauca.asae.asst.batteries.asstbatteries.layerControllers;
+package co.edu.unicauca.asae.asst.batteries.asstbatteries.controllersLayer;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.unicauca.asae.asst.batteries.asstbatteries.facadeServices.DTO.BatteryDTO;
-import co.edu.unicauca.asae.asst.batteries.asstbatteries.facadeServices.services.IBatteryService;
+import co.edu.unicauca.asae.asst.batteries.asstbatteries.servicesFacade.DTO.BatteryDTO;
+import co.edu.unicauca.asae.asst.batteries.asstbatteries.servicesFacade.services.IBatteryService;
+
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -35,7 +36,7 @@ public class BatteryRestController {
         return this.batteryService.findById(id);
     }
 
-    @PostMapping("path")
+    @PostMapping("/battery")
     public BatteryDTO create(@RequestBody BatteryDTO battery) {
         return this.batteryService.save(battery);
     }
