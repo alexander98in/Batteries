@@ -51,13 +51,17 @@ public class BatteryServiceImpl implements IBatteryService {
     @Override
     public BatteryDTO update(Long id, BatteryDTO battery) {
         BatteryEntity batteryEntity = this.modelMapper.map(battery, BatteryEntity.class);
-        BatteryDTO batteryDTO = this.modelMapper.map(this.serviceAccessData.update(id, batteryEntity), BatteryDTO.class);
-        return batteryDTO;
-    }
+        batteryEntity = this.serviceAccessData.update(id, batteryEntity);
+        if(batteryEntity != null) {
+            return this.modelMapper.map(batteryEntity, BatteryDTO.class);
+        }
+        else {
+            return null;
+        }
+    }  
 
     @Override
     public Boolean delete(Long id) {
         return this.serviceAccessData.delete(id);
     }
-
 }

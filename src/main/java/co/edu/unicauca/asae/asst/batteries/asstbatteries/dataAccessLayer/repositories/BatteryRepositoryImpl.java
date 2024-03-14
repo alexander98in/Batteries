@@ -86,7 +86,7 @@ public class BatteryRepositoryImpl implements IBatteryRepository {
         QuestionEntity question4 = new QuestionEntity(4L, "Es fácil transportarme entre mi casa y el trabajo", 2);
         QuestionEntity question5 = new QuestionEntity(5L, "La zona donde vivo es segura", 2);
 
-        List<QuestionEntity> questionList = Arrays.asList(question1, question2, question3, question4, question5);
+        List<QuestionEntity> questionList = new LinkedList<QuestionEntity>(Arrays.asList(question1, question2, question3, question4, question5));
         
         DateFormat sdf = new SimpleDateFormat("dd/MM/yy");
         Date birthdate = new Date();
